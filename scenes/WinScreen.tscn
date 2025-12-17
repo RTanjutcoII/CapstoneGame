@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn3xsolf2a2k8"]
+
+[ext_resource type="Script" uid="uid://bo2r56po6npn1" path="res://scripts/win_screen.gd" id="1_okh34"]
+[ext_resource type="Texture2D" uid="uid://ni3yynxsf3vs" path="res://assets/light/Background.png" id="1_ulig0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_okh34"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q8i45"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="CanvasLayer"]
+script = ExtResource("1_okh34")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.2941, 325)
+scale = Vector2(2.397059, 2.3970587)
+texture = ExtResource("1_ulig0")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -239.99998
+offset_top = -121.81595
+offset_right = 240.17177
+offset_bottom = -38.797523
+text = "You Win!"
+label_settings = SubResource("LabelSettings_okh34")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="Sprite2D"]
+offset_left = -92.319016
+offset_top = 67.16565
+offset_right = 92.490814
+offset_bottom = 106.38038
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 480.0
+offset_top = 210.0
+offset_right = 660.0
+offset_bottom = 233.0
+text = "Made by Ryan Tanjutco"
+label_settings = SubResource("LabelSettings_q8i45")

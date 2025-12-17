@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://camnxv3gc5hsf"]
+
+[ext_resource type="Script" uid="uid://2pvt1gipeu6u" path="res://scripts/main_menu.gd" id="1_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://ni3yynxsf3vs" path="res://assets/light/Background.png" id="2_2wh52"]
+[ext_resource type="PackedScene" uid="uid://qxikoegey4vq" path="res://scenes/test_level.tscn" id="2_ow34m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow34m"]
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l72w3"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_0ykhv")
+level_scene = ExtResource("2_ow34m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.2941, 325)
+scale = Vector2(2.397059, 2.3970587)
+texture = ExtResource("2_2wh52")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -239.99998
+offset_top = -121.81595
+offset_right = 240.17177
+offset_bottom = -38.797523
+text = "Sky Dungeon"
+label_settings = SubResource("LabelSettings_ow34m")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+offset_left = -58.11043
+offset_top = -49.226994
+offset_right = 49.88957
+offset_bottom = -26.226994
+text = "(working title)"
+label_settings = SubResource("LabelSettings_l72w3")
+
+[node name="Quit" type="Button" parent="Sprite2D"]
+offset_left = -92.319016
+offset_top = 67.16565
+offset_right = 92.490814
+offset_bottom = 106.38038
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="Sprite2D"]
+offset_left = -92.31902
+offset_top = 1.2515373
+offset_right = 92.30732
+offset_bottom = 40.61349
+text = "Start"
+metadata/_edit_use_anchors_ = true
