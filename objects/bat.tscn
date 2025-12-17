@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://djy8085m3akv3"]
+
+[ext_resource type="Script" uid="uid://7xkjqfy6ohq8" path="res://scripts/bat.gd" id="1_dh456"]
+[ext_resource type="PackedScene" uid="uid://ci55sni2vv5lm" path="res://objects/projectile.tscn" id="2_yx2cu"]
+[ext_resource type="Texture2D" uid="uid://3kg3jtkqdti2" path="res://assets/enemy/Bat.png" id="3_dh456"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5rrr"]
+atlas = ExtResource("3_dh456")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxhvq"]
+atlas = ExtResource("3_dh456")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_376i6"]
+atlas = ExtResource("3_dh456")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phwxm"]
+atlas = ExtResource("3_dh456")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4di"]
+atlas = ExtResource("3_dh456")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r7d0"]
+atlas = ExtResource("3_dh456")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvl4"]
+atlas = ExtResource("3_dh456")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03h5d"]
+atlas = ExtResource("3_dh456")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cugwd"]
+atlas = ExtResource("3_dh456")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bvl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5rrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxhvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_376i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phwxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4di")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r7d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03h5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cugwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03h5d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh456"]
+size = Vector2(38, 35)
+
+[node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_dh456")
+projectile_scene = ExtResource("2_yx2cu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1bvl4")
+animation = &"attack"
+frame = 4
+frame_progress = 1.0
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(11, 3)
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(5, 1.5)
+shape = SubResource("RectangleShape2D_dh456")

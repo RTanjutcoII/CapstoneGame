@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwgrsuo8iglq7"]
+
+[ext_resource type="Script" uid="uid://dxt1rjhwao7gf" path="res://scripts/skeleton.gd" id="1_hqinw"]
+[ext_resource type="Texture2D" uid="uid://b0vhkp7h183e4" path="res://assets/enemy/Skeleton.png" id="2_bhttd"]
+[ext_resource type="PackedScene" uid="uid://404toldys2u0" path="res://objects/skelesword.tscn" id="2_gux5l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gux5l"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a500b"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8846s"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq24l"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ntb0"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5h7i"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqcm"]
+atlas = ExtResource("2_bhttd")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2w3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gux5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a500b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8846s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq24l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ntb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5h7i")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqcm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqinw"]
+size = Vector2(27, 55)
+
+[node name="Skeleton" type="CharacterBody2D"]
+script = ExtResource("1_hqinw")
+projectile_scene = ExtResource("2_gux5l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e2w3y")
+animation = &"attack"
+frame = 5
+frame_progress = 1.0
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_hqinw")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-16, 0)

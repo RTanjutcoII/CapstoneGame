@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://404toldys2u0"]
+
+[ext_resource type="Script" uid="uid://b121ivryy3vgj" path="res://scripts/skelesword.gd" id="1_l263i"]
+[ext_resource type="Texture2D" uid="uid://bsiglw55l745p" path="res://assets/enemy/Sword_sprite.png" id="1_xis2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l263i"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(0, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soer1"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(92, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88nh7"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(184, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bodbx"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(276, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmpnx"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(368, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mci50"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(460, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g1p3"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(552, 0, 92, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm0ew"]
+atlas = ExtResource("1_xis2i")
+region = Rect2(644, 0, 92, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_frigy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l263i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soer1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88nh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bodbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmpnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mci50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g1p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm0ew")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 18.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xis2i"]
+size = Vector2(26, 25)
+
+[node name="Skelesword" type="Area2D"]
+script = ExtResource("1_l263i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5, -4)
+sprite_frames = SubResource("SpriteFrames_frigy")
+animation = &"impact"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xis2i")
